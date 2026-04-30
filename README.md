@@ -30,7 +30,7 @@ A powerful Telegram moderation bot that automatically detects users with promoti
 
 ## ☁️ Heroku Deployment
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/llTEAM-VAMPIREll/BIOLINKREMOVER)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/VAMPIRE-BOTS/VAMPIREBIOLINKDLTER)
 
 ## 👑 Owner
 
