@@ -65,10 +65,17 @@ async def add_warning(user_id):
 @dp.message(Command("start"))
 async def start(message: Message):
     kb = InlineKeyboardBuilder()
-    kb.button(text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"url=f"https://t.me/{BOT_USERNAME}?startgroup=true"")
+
+    # ✅ FIXED LINE (yahi error tha)
+    kb.button(
+        text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙",
+        url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+    )
+
     kb.button(text="˹ ❍ᴡηєʀ ˼", url=OWNER_LINK)
     kb.button(text="˹ sυᴘᴘσʀᴛ ˼", url=SUPPORT_LINK)
     kb.button(text="˹ ʜєʟᴘ ᴧηᴅ ᴄσϻϻᴧηᴅs ˼", callback_data="help")
+
     kb.adjust(1, 2, 1)
 
     text = (
@@ -105,7 +112,7 @@ async def help_cb(callback: CallbackQuery):
     await callback.message.answer(text)
     await callback.answer()
 
-# ====== APPROVE (same as before) ======
+# ====== APPROVE ======
 @dp.message(Command("approve"))
 async def approve(message: Message):
     if not await is_admin(message.chat.id, message.from_user.id):
