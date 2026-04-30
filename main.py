@@ -20,6 +20,9 @@ IMAGE_URL = "https://i.ibb.co/Zj7Xckf/x.jpg"
 OWNER_LINK = "https://t.me/lVAMPIRE_KINGl"
 SUPPORT_LINK = "https://t.me/VAMPIREUPDATES"
 
+# 👉 IMPORTANT: yaha apna bot username daalo (without @)
+BOT_USERNAME = "YourBotUsername"
+
 # ====== CHECK ======
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN missing")
@@ -62,10 +65,11 @@ async def add_warning(user_id):
 @dp.message(Command("start"))
 async def start(message: Message):
     kb = InlineKeyboardBuilder()
-    kb.button(text="👑 Owner", url=OWNER_LINK)
-    kb.button(text="🆘 Support", url=SUPPORT_LINK)
-    kb.button(text="📚 Help", callback_data="help")
-    kb.adjust(2, 1)
+    kb.button(text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"url=f"https://t.me/{BOT_USERNAME}?startgroup=true"")
+    kb.button(text="˹ ❍ᴡηєʀ ˼", url=OWNER_LINK)
+    kb.button(text="˹ sυᴘᴘσʀᴛ ˼", url=SUPPORT_LINK)
+    kb.button(text="˹ ʜєʟᴘ ᴧηᴅ ᴄσϻϻᴧηᴅs ˼", callback_data="help")
+    kb.adjust(1, 2, 1)
 
     text = (
         "<b>👋 Hey! I am Bio Link Deleter Bot</b>\n\n"
@@ -101,7 +105,7 @@ async def help_cb(callback: CallbackQuery):
     await callback.message.answer(text)
     await callback.answer()
 
-# ====== APPROVE ======
+# ====== APPROVE (same as before) ======
 @dp.message(Command("approve"))
 async def approve(message: Message):
     if not await is_admin(message.chat.id, message.from_user.id):
@@ -113,15 +117,26 @@ async def approve(message: Message):
         user = message.reply_to_message.from_user
     else:
         args = message.text.split()
+
         if len(args) > 1:
-            try:
-                user_id = int(args[1])
-                user = await bot.get_chat(user_id)
-            except:
-                pass
+            arg = args[1]
+
+            if arg.isdigit():
+                try:
+                    user = await bot.get_chat(int(arg))
+                except:
+                    pass
+
+            elif arg.startswith("@"):
+                try:
+                    user = await bot.get_chat(arg)
+                except:
+                    pass
 
     if not user:
-        return await message.reply("Reply or give user_id")
+        return await message.reply(
+            "❌ Use:\nReply /approve\n/approve user_id\n/approve @username"
+        )
 
     await approved_users.update_one(
         {"user_id": user.id},
@@ -171,7 +186,7 @@ async def filter_msg(message: Message):
 
         warn_msg = await message.answer(
             f"⚠️ {user.mention_html()}\n"
-            f"Please remove your bio link and send again.\n"
+            f"Please remove your bio link and send again message.\n"
             f"Warning: {count}/3"
         )
 
