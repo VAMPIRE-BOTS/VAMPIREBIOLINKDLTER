@@ -17,6 +17,9 @@ OWNER_ID = int(os.getenv("OWNER_ID", "0"))
 
 IMAGE_URL = "https://i.ibb.co/Zj7Xckf/x.jpg"
 
+OWNER_LINK = "https://t.me/lVAMPIRE_KINGl"
+SUPPORT_LINK = "https://t.me/VAMPIREUPDATES"
+
 # ====== CHECK ======
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN missing")
@@ -59,8 +62,10 @@ async def add_warning(user_id):
 @dp.message(Command("start"))
 async def start(message: Message):
     kb = InlineKeyboardBuilder()
+    kb.button(text="👑 Owner", url=OWNER_LINK)
+    kb.button(text="🆘 Support", url=SUPPORT_LINK)
     kb.button(text="📚 Help", callback_data="help")
-    kb.adjust(1)
+    kb.adjust(2, 1)
 
     text = (
         "<b>👋 Hey! I am Bio Link Deleter Bot</b>\n\n"
