@@ -21,7 +21,7 @@ OWNER_LINK = "https://t.me/lVAMPIRE_KINGl"
 SUPPORT_LINK = "https://t.me/VAMPIREUPDATES"
 
 # 👉 IMPORTANT: yaha apna bot username daalo (without @)
-BOT_USERNAME = "YourBotUsername"
+BOT_USERNAME = "BIOPROXROBOT"
 
 # ====== CHECK ======
 if not BOT_TOKEN:
@@ -69,7 +69,7 @@ async def start(message: Message):
     # ✅ FIXED LINE (yahi error tha)
     kb.button(
         text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙",
-        url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+        url=f"https://t.me/{BIOPROXROBOT}?startgroup=true"
     )
 
     kb.button(text="˹ ❍ᴡηєʀ ˼", url=OWNER_LINK)
