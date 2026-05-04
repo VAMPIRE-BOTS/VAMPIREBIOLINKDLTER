@@ -69,7 +69,7 @@ async def start(message: Message):
     # ✅ FIXED LINE (yahi error tha)
     kb.button(
         text="✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙",
-        url=f"https://t.me/{BIOPROXROBOT}?startgroup=true"
+        url=f"https://t.me/{(await bot.get_me()).username}?startgroup=true"
     )
 
     kb.button(text="˹ ❍ᴡηєʀ ˼", url=OWNER_LINK)
